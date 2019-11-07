@@ -1,0 +1,7 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+accepterrejectedJDTV3
+This script will sort movies after accepted and rejected folders beased on the manually curate job.
+Teps to running it: 2) download the micrographs_accepted.cs and micrographs_rejected.cs and move them into the parent folder of all the micrographs. 2)move the python script in to the same folder. 3) in terminal move to that directory and tpy in python3 acceptedrejectedVXXX.py
+the script shoudl take no more than a few hours to run. Double check that it move the correct files before deleting anything. 
