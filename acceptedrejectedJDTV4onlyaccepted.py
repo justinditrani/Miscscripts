@@ -15,10 +15,6 @@ jn = os.path.join(tt + '/micrographs_accepted.cs')
 jnf = jn.replace("\\", "/")
 acc = np.load(jnf)
 
-jtn = os.path.join(tt + '/micrographs_rejected.cs')
-jnft = jtn.replace("\\", "/")
-rej = np.load(jnft)
-
 newdir = os.path.join(tt + '/rejected')
 nd = newdir.replace("\\", "/")
 ndd = os.mkdir(nd)
