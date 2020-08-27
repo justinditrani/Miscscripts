@@ -24,6 +24,7 @@ OUTPUT: Average density per voxel in the mask
 DENSITY COMPARE 2
 INPUT: python3 MRCtoolsV5.py --densitycompare2 MAP.mrc map_1.mrc map_2.mrc t_1,2 rad_1
 
+WORKFLOW:
 1) binerize map_1.mrc and map_2.mrc at threshold t_1,2 to get mask_1.mrc and mask_2.mrc
 2) Get the average density per voxel in the MAP.mrc in the region of mask_1.mrc = den_1
 3) Get the average density per voxel in the MAP.mrc in the region of mask_2.mrc = den_2
@@ -37,6 +38,7 @@ OUTPUT: occupancy
 DENSITY COMPARE 3
 INPUT: python3 MRCtoolsV5.py --densitycompare3 MAP.mrc map_1.mrc map_2.mrc map_3.mrc t_1 t_2 t_3
 
+WORKFLOW:
 1) binerize map_1.mrc, map_2.mrc, and map_3.mrc at threshold t_1, t_2 and t_3 respectively to get mask_1.mrc, mask_2.mrc, and mask_3.mrc
 2) Get the average density per voxel in the MAP.mrc in the region of mask_1.mrc = den_1
 3) Get the average density per voxel in the MAP.mrc in the region of mask_2.mrc = den_2
