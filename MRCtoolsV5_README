@@ -1,0 +1,47 @@
+Measure the density by summing the values of the voxels within an area defined by a mask
+Ensure everything is aligned in chimera for example and resampled on the same grid
+Put all files in same folder cd to folder then type in the commands....
+
+GENERAL INPUT -> DESCRIPTION
+MAP.mrc   -> map of interest 
+map_x.mrc -> map which will be binerized into a mask at threshold t_x
+t_x       -> threshold to binerize mask_x at
+
+
+
+DENSITY COMPARE 1
+INPUT: python3 MRCtoolsV5.py --densitycompare1 MAP.mrc map_1.mrc t_1 
+
+WORKFLOW:
+1) binerize map_1.mrc at t_1 to make a mask_1.mrc
+2) Get the average density per voxel in the MAP.mrc in the region of mask_1.mrc
+
+OUTPUT: Average density per voxel in the mask 
+
+
+
+
+DENSITY COMPARE 2
+INPUT: python3 MRCtoolsV5.py --densitycompare2 MAP.mrc map_1.mrc map_2.mrc t_1,2 rad_1
+
+1) binerize map_1.mrc and map_2.mrc at threshold t_1,2 to get mask_1.mrc and mask_2.mrc
+2) Get the average density per voxel in the MAP.mrc in the region of mask_1.mrc = den_1
+3) Get the average density per voxel in the MAP.mrc in the region of mask_2.mrc = den_2
+4) measure background by finding the average density per voxel in the spherical shell larger than radius rad_1 but smaller than boxsize/2 = noise
+5) occupancy = (den_1-noise)/(den_2-noise)
+
+OUTPUT: occupancy
+
+
+
+DENSITY COMPARE 3
+INPUT: python3 MRCtoolsV5.py --densitycompare3 MAP.mrc map_1.mrc map_2.mrc map_3.mrc t_1 t_2 t_3
+
+1) binerize map_1.mrc, map_2.mrc, and map_3.mrc at threshold t_1, t_2 and t_3 respectively to get mask_1.mrc, mask_2.mrc, and mask_3.mrc
+2) Get the average density per voxel in the MAP.mrc in the region of mask_1.mrc = den_1
+3) Get the average density per voxel in the MAP.mrc in the region of mask_2.mrc = den_2
+4) Get the average density per voxel in the MAP.mrc in the region of mask_2.mrc = den_3 = noise. This is in the area where there is only background (no structure). 
+5) occupancy = (den_1-noise)/(den_2-noise)
+
+OUTPUT: occupancy
+
